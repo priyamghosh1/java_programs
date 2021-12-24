@@ -1,11 +1,24 @@
 import java.util.*;
 class primeN{
+	static int sum(String a){
+		int c = 0;
+		for(int i = 0; i < a.length(); i++){
+			c=c + Character.getNumericValue(a.charAt(i));
+		}
+		return c;
+	}	
+
 	boolean checkSumPrime(int a){
 		String temp = String.valueOf(a);
 		int i,c=0,k=0;
-		for(i = 0; i < temp.length(); i++){
-			c=c + Character.getNumericValue(temp.charAt(i));
+		if(temp.length()>=2){
+			do{
+				c = sum(temp);
+				temp = String.valueOf(c);
+			}while(String.valueOf(c).length()>=2);
 		}
+		
+		
 		for(i=2; i < c; i++){
 			if(c%i ==0){
 				return false;
